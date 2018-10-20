@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { zip } from 'rxjs/operators';
 import { EventCriteria } from '../models/EventCriteria';
 import { EventsService } from '../logics/events.service';
@@ -9,7 +9,7 @@ import { EventsService } from '../logics/events.service';
 	styleUrls: ['./input-form.component.css']
 })
 export class InputFormComponent {
-
+	@Output() searchClick: EventEmitter<any> = new EventEmitter();
 	constructor(private events: EventsService) {}
 
 	cityInput: String;
@@ -21,11 +21,11 @@ export class InputFormComponent {
 	states: String[] = [
 		'AL', 'AK', "AZ", 'AR', 'CA', "CO", "CT", "DE",
 		"DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA",
-		"KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", 
+		"KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN",
 		"MS", "MO", "MT", "NE", "NV", "NV", "NH", "NJ",
 		"NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA",
 		"RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA",
-		"WA", "WV", "WI", "WY"                                 
+		"WA", "WV", "WI", "WY"
 	]
 
 	// Get the state selected
@@ -42,6 +42,7 @@ export class InputFormComponent {
 		criteria.endDateTime = new Date(this.endDate);
 		this.events.getEventsList(criteria).then(data => {
 			console.log(data);
+			this.searchClick.emit(data);
 		});
 	}
 }
