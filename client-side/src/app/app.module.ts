@@ -13,13 +13,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
+import { FeedComponent } from './feed/feed.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    InputFormComponent
+    InputFormComponent,
+    FeedComponent
   ],
   imports: [
     ReactiveFormsModule,

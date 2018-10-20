@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { zip } from 'rxjs/operators';
 import { EventCriteria } from '../models/EventCriteria';
 import { EventsService } from '../logics/events.service';
@@ -9,11 +9,11 @@ import { EventsService } from '../logics/events.service';
 	styleUrls: ['./input-form.component.css']
 })
 export class InputFormComponent implements OnInit{
+  @Output() searchClick: EventEmitter<any> = new EventEmitter();
 
 
 	constructor(private events: EventsService) {}
 
-  eventCriteria: EventCriteria[] = [];
 	cityInput: String;
 	stateInput: String;
 	zipInput: String;
@@ -44,7 +44,7 @@ export class InputFormComponent implements OnInit{
     a.endDateTime.setFullYear(2019);
 
     this.events.getEventsList(a).then(data => {
-      this.eventCriteria = data;
+      this.searchClick.emit(data);
     });
   }
 
@@ -56,15 +56,8 @@ export class InputFormComponent implements OnInit{
 		criteria.startDateTime = new Date(this.startDate);
 		criteria.endDateTime = new Date(this.endDate);
 		this.events.getEventsList(criteria).then(data => {
-      this.eventCriteria = data;
+      this.searchClick.emit(data);
 		});
 	}
-
-  validatePriceRange(e) : Boolean {
-	  return e.priceRanges && e.priceRanges[0] && e.priceRanges[0].min && e.priceRanges[0].max;
-  }
-
-  validateDate(e) : Boolean {
-    return e.dates && e.dates.start && e.dates.start.dateTime;
-  }
 }
+
