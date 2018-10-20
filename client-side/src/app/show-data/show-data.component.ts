@@ -34,7 +34,7 @@ export class ShowDataComponent implements OnInit {
         this.rawData['cardTitle'] = $event[i]["name"];
         this.rawData['dateStart'] = $event[i]["dates"]["start"]["localDate"];
         this.rawData['timeStart'] = $event[i]["dates"]["start"]["localTime"];
-        this.rawData['imageSrc'] = $event[i]["images"][9]["url"];
+        this.rawData['imageSrc'] = $event[i]["images"][0]["url"];
         this.rawData['subTitle'] = $event[i]["_embedded"]["venues"][0]["name"];
         this.rawData['atlContent'] = $event[i]["_embedded"]["venues"][0]["name"];
         this.currentData.push(this.rawData);
