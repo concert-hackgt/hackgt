@@ -15,8 +15,8 @@ export class InputFormComponent {
 	cityInput: String;
 	stateInput: String;
 	zipInput: String;
-	startDate: String;
-	endDate: String;
+	startDate: string;
+	endDate: string;
 
 	states: String[] = [
 		'AL', 'AK', "AZ", 'AR', 'CA', "CO", "CT", "DE",
@@ -35,16 +35,13 @@ export class InputFormComponent {
 
 	// Button click function
 	goClick() : void {
-		var a  = new EventCriteria();
-		a.endDateTime.setFullYear(2019);
-
-		this.events.getEventsList(a).then(data => {
+		var criteria  = new EventCriteria();
+		criteria.city = this.cityInput;
+		criteria.state = this.stateInput;
+		criteria.startDateTime = new Date(this.startDate);
+		criteria.endDateTime = new Date(this.endDate);
+		this.events.getEventsList(criteria).then(data => {
 			console.log(data);
 		});
-		// console.log(this.cityInput);
-		// console.log(this.stateInput);
-		// console.log(this.zipInput);
-		// console.log(this.startDate);
-		// console.log(this.endDate);
 	}
 }
