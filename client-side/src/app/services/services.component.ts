@@ -24,7 +24,7 @@ export class ServicesComponent implements OnInit {
     //   console.log(result);
     // })
     var a  = new EventCriteria();
-    a.city = "Atlanta";
+    a.endDateTime.setFullYear(2019);
 
     this.events.getEventsList(a).then(data => {
       console.log(data);
