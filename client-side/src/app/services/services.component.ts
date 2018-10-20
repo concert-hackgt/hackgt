@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { EventsService } from '../logics/events.service';
+import { EventCriteria } from '../models/EventCriteria';
 // import { runInThisContext } from 'vm';
 
 @Component({
@@ -22,7 +23,10 @@ export class ServicesComponent implements OnInit {
     // .subscribe((result) => {
     //   console.log(result);
     // })
-    this.events.getEventsList("").then(data => {
+    var a  = new EventCriteria();
+    a.city = "Atlanta";
+
+    this.events.getEventsList(a).then(data => {
       console.log(data);
     });
   }
