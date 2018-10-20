@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatNativeDateModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatToolbarModule } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { InputFormComponent } from './input-form/input-form.component';
 import { MatInputModule } from '@angular/material/input';
@@ -15,7 +15,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { ShowDataComponent } from './show-data/show-data.component';
 import { MatChipsModule } from '@angular/material/chips';
-
+import { MapComponent } from './map/map.component';
+import { FeedComponent } from './feed/feed.component';
 
 
 @NgModule({
@@ -23,7 +24,9 @@ import { MatChipsModule } from '@angular/material/chips';
     AppComponent,
     HeaderComponent,
     InputFormComponent,
-    ShowDataComponent
+    ShowDataComponent,
+    MapComponent,
+    FeedComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -40,7 +43,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatAutocompleteModule,
     MatSelectModule,
     MatNativeDateModule,
-    MatChipsModule
+    MatChipsModule,
+    MatToolbarModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]

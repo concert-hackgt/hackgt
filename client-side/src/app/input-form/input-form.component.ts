@@ -1,25 +1,32 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { zip } from 'rxjs/operators';
 import { EventCriteria } from '../models/EventCriteria';
 import { EventsService } from '../logics/events.service';
+import { EventCriteriaToMapService } from '../services/event-criteria-to-map.service';
 
 @Component({
 	selector: 'app-input-form',
 	templateUrl: './input-form.component.html',
 	styleUrls: ['./input-form.component.css']
 })
-export class InputFormComponent {
-	@Output() searchClick: EventEmitter<any> = new EventEmitter();
-	constructor(private events: EventsService) {}
+export class InputFormComponent implements OnInit{
+  @Output() searchClick: EventEmitter<any> = new EventEmitter();
 
-	cityInput: String;
-	stateInput: String;
-	zipInput: String;
-	startDate: String;
-	endDate: String;
+	ngOnInit() {
+		// this.queryDefaultEvent();
+	}
+
+	constructor(private events: EventsService,
+		private eventCriteriaTransfer: EventCriteriaToMapService) {}
+
+	cityInput: string;
+	stateInput: string;
+	zipInput: string;
+	startDate: string;
+	endDate: string;
 	keyWord: String;
 
-	states: String[] = [
+	states: string[] = [
 		'AL', 'AK', "AZ", 'AR', 'CA', "CO", "CT", "DE",
 		"DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA",
 		"KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN",
@@ -34,16 +41,28 @@ export class InputFormComponent {
 		this.stateInput = event;
 	}
 
+  queryDefaultEvent() : void {
+    var a  = new EventCriteria();
+    a.endDateTime.setFullYear(2019);
+
+    this.events.getEventsList(a).then(data => {
+      this.searchClick.emit(data);
+    });
+  }
+
 	// Button click function
 	goClick() : void {
+		var geocoder = new google.maps.Geocoder();
 		var criteria  = new EventCriteria();
 		criteria.city = this.cityInput;
 		criteria.state = this.stateInput;
 		criteria.startDateTime = new Date(this.startDate);
 		criteria.endDateTime = new Date(this.endDate);
+		this.eventCriteriaTransfer.setCriteria(criteria);
 		this.events.getEventsList(criteria).then(data => {
 			// console.log(data);
 			this.searchClick.emit(data);
 		});
 	}
 }
+
