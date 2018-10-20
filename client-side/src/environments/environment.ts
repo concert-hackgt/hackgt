@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  HOST: 'http://localhost:8000'
+  HOST: 'https://app.ticketmaster.com',
+  APIKEY: 'k8X97RqaamacWzZnyGrG7SJAAyhZwh9j'
 };
 
 /*
