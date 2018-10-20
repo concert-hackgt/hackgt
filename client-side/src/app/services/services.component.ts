@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms'
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { runInThisContext } from 'vm';
+// import { TransferDataService } from '../services/transfer-data.service';
 
 @Component({
   selector: 'app-services',
@@ -13,7 +13,7 @@ import { runInThisContext } from 'vm';
 })
 export class ServicesComponent implements OnInit {
 
-  constructor() { }
+  // constructor(private methodHelper: HttpMethodService, private transferDataService: TransferDataService) { }
 
   ngOnInit() {
   }
