@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { ServicesComponent } from './services/services.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import { DisplayDataComponent } from './display-data/display-data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ServicesComponent
+    ServicesComponent,
+    DisplayDataComponent
   ],
   imports: [
     BrowserModule,
