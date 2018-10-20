@@ -18,7 +18,6 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MapComponent } from './map/map.component';
 import { FeedComponent } from './feed/feed.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
