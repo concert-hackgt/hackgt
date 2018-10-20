@@ -10,8 +10,10 @@ import { EventsService } from '../logics/events.service';
 })
 export class InputFormComponent {
 
+
 	constructor(private events: EventsService) {}
 
+  eventCriteria: EventCriteria[] = [];
 	cityInput: String;
 	stateInput: String;
 	zipInput: String;
@@ -21,11 +23,11 @@ export class InputFormComponent {
 	states: String[] = [
 		'AL', 'AK', "AZ", 'AR', 'CA', "CO", "CT", "DE",
 		"DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA",
-		"KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", 
+		"KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN",
 		"MS", "MO", "MT", "NE", "NV", "NV", "NH", "NJ",
 		"NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA",
 		"RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA",
-		"WA", "WV", "WI", "WY"                                 
+		"WA", "WV", "WI", "WY"
 	]
 
 	// Get the state selected
@@ -39,12 +41,16 @@ export class InputFormComponent {
 		a.endDateTime.setFullYear(2019);
 
 		this.events.getEventsList(a).then(data => {
+      this.eventCriteria = data;
 			console.log(data);
 		});
-		// console.log(this.cityInput);
-		// console.log(this.stateInput);
-		// console.log(this.zipInput);
-		// console.log(this.startDate);
-		// console.log(this.endDate);
 	}
+
+  validatePriceRange(e) : Boolean {
+	  return e.priceRanges && e.priceRanges[0] && e.priceRanges[0].min && e.priceRanges[0].max;
+  }
+
+  validateDate(e) : Boolean {
+    return e.dates && e.dates.start && e.dates.start.dateTime;
+  }
 }

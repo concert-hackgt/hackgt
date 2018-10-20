@@ -6,7 +6,7 @@
 </mat-form-field> -->
 
 
-<div class="form-group col-md-5">
+<div class="form-group">
 	<mat-card>
 		<div class="form-inline form-row">
 			<div class="form-group">
@@ -48,13 +48,6 @@
 						</mat-form-field>
 					</div>
 				</div>
-
-				<div class="form-group">
-					<div class="col">
-						<button type="button" mat-mini-fab (click)="goClick()" color="primary">Go</button>
-					</div>
-				</div>
-
 				<div class="form-group">
 					<div class="col">
 						<mat-form-field>
@@ -64,6 +57,42 @@
 						</mat-form-field>
 					</div>
 				</div>
+
+        <div class="form-group">
+          <div class="col">
+            <button type="button" mat-mini-fab (click)="goClick()" color="primary">Go</button>
+          </div>
+        </div>
 		</div>
 	</mat-card>
+
+  <div class="event-list-container">
+    <mat-card class="event-list-card" *ngFor="let e of eventCriteria">
+      <mat-card-content>
+        <div>
+          <img class="event-list-image" [src]="e.images[2].url">
+        </div>
+        <div class="event-list-content">
+          <div class="event-name">
+            {{e.name}}
+          </div>
+          <div class="event-price-range" *ngIf="validatePriceRange(e)">
+            Price Rance: ${{e.priceRanges[0].min}} - ${{e.priceRanges[0].max}}
+          </div>
+          <div class="event-price-range" *ngIf="!validatePriceRange(e)">
+            Price Rance: Not Available
+          </div>
+
+
+          <div class="event-date" *ngIf="validateDate(e)">
+            Event date: {{e.dates.start.dateTime | date}}
+          </div>
+          <div class="event-date" *ngIf="!validateDate(e)">
+            Event date: Not Available
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
 </div>
