@@ -1,26 +1,25 @@
 export class EventCriteria {
   constructor(){}
-  state: string = "";
-  city: string = "";
+  state: String = "";
+  city: String = "";
   startDateTime: Date = new Date();
   endDateTime: Date = new Date();
-  countryCode: string = "US";
+  countryCode: String = "US";
   page: number = 0;
 
-  getCityLink(): string {
-    console.log(this.city)
-    return this.city == "" ? this.city : "&city=" + this.city;
+  getCityLink(): String {
+    return this.city == "" || this.city == undefined ? "" : "&city=" + this.city;
   }
 
-  getStateLink(): string {
-    return this.state == "" ? this.state : "&stateCode=" + this.state;
+  getStateLink(): String {
+    return this.state == "" || this.state == undefined ? "" : "&stateCode=" + this.state;
   }
 
-  getCountryCodeLink(): string {
-    return this.countryCode == "" ? this.countryCode : "&countryCode=" + this.countryCode;
+  getCountryCodeLink(): String {
+    return this.countryCode == "" || this.countryCode == undefined ? "" : "&countryCode=" + this.countryCode;
   }
 
-  getPageLink(): string {
+  getPageLink(): String {
     return this.page == 0 ? "" + this.page : "&page=" + this.page;
   }
 }
