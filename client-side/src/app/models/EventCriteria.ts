@@ -1,11 +1,16 @@
 export class EventCriteria {
   constructor(){}
+  keyword: string = "";
   state: string = "";
   city: string = "";
   startDateTime: Date = new Date();
   endDateTime: Date = new Date();
   countryCode: string = "US";
   page: number = 0;
+
+  getKeyword(): string {
+    return this.keyword == "" || this.keyword == undefined ? "" : "&keyword=" + this.keyword;
+  }
 
   getCityLink(): string {
     return this.city == "" || this.city == undefined ? "" : "&city=" + this.city;
