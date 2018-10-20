@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { zip } from 'rxjs/operators';
+import { EventCriteria } from '../models/EventCriteria';
+import { EventsService } from '../logics/events.service';
 
 @Component({
 	selector: 'app-input-form',
@@ -8,22 +10,23 @@ import { zip } from 'rxjs/operators';
 })
 export class InputFormComponent {
 
-	constructor() {}
+	constructor(private events: EventsService) {}
 
 	cityInput: String;
 	stateInput: String;
 	zipInput: String;
 	startDate: String;
 	endDate: String;
-	States: String[] = [
-		'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut',
-		'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
-		'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan',
-		'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-		'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon',
-		'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas',
-		'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-	];
+
+	states: String[] = [
+		'AL', 'AK', "AZ", 'AR', 'CA', "CO", "CT", "DE",
+		"DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA",
+		"KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", 
+		"MS", "MO", "MT", "NE", "NV", "NV", "NH", "NJ",
+		"NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA",
+		"RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA",
+		"WA", "WV", "WI", "WY"                                 
+	]
 
 	// Get the state selected
 	stateSelected (event) {
@@ -32,10 +35,16 @@ export class InputFormComponent {
 
 	// Button click function
 	goClick() : void {
-		console.log(this.cityInput);
-		console.log(this.stateInput);
-		console.log(this.zipInput);
-		console.log(this.startDate);
-		console.log(this.endDate);
+		var a  = new EventCriteria();
+		a.endDateTime.setFullYear(2019);
+
+		this.events.getEventsList(a).then(data => {
+			console.log(data);
+		});
+		// console.log(this.cityInput);
+		// console.log(this.stateInput);
+		// console.log(this.zipInput);
+		// console.log(this.startDate);
+		// console.log(this.endDate);
 	}
 }

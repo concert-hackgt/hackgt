@@ -30,7 +30,7 @@
 					<mat-form-field appearance="outline">
 						<mat-label>State</mat-label>
 						<mat-select placeholder="Select State" (selectionChange)="stateSelected($event.value)">
-							<mat-option *ngFor="let state of States" [value]="state">
+							<mat-option *ngFor="let state of states" [value]="state">
 							{{state}}
 							</mat-option>
 						</mat-select>
