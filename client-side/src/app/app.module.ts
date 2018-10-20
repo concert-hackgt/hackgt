@@ -14,6 +14,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
+import { ShowDataComponent } from './show-data/show-data.component';
+import { MatChipsModule } from '@angular/material/chips';
+
 
 
 @NgModule({
@@ -21,7 +24,8 @@ import { MatSelectModule } from '@angular/material/select';
     AppComponent,
     ServicesComponent,
     HeaderComponent,
-    InputFormComponent
+    InputFormComponent,
+    ShowDataComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -37,7 +41,8 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     MatAutocompleteModule,
     MatSelectModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatChipsModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
