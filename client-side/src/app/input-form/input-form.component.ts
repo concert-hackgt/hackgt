@@ -19,12 +19,12 @@ export class InputFormComponent implements OnInit{
 	constructor(private events: EventsService,
 		private eventCriteriaTransfer: EventCriteriaToMapService) {}
 
+	keyword: string;
 	cityInput: string;
 	stateInput: string;
 	zipInput: string;
 	startDate: string;
 	endDate: string;
-	keyWord: String;
 
 	states: string[] = [
 		'AL', 'AK', "AZ", 'AR', 'CA', "CO", "CT", "DE",
@@ -54,6 +54,7 @@ export class InputFormComponent implements OnInit{
 	goClick() : void {
 		var geocoder = new google.maps.Geocoder();
 		var criteria  = new EventCriteria();
+		criteria.keyword = this.keyword;
 		criteria.city = this.cityInput;
 		criteria.state = this.stateInput;
 		criteria.startDateTime = new Date(this.startDate);
