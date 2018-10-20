@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { ServicesComponent } from './services/services.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatNativeDateModule } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
@@ -22,7 +21,6 @@ import { MatChipsModule } from '@angular/material/chips';
 @NgModule({
   declarations: [
     AppComponent,
-    ServicesComponent,
     HeaderComponent,
     InputFormComponent,
     ShowDataComponent

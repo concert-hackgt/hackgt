@@ -15,8 +15,8 @@ export class InputFormComponent {
 	cityInput: String;
 	stateInput: String;
 	zipInput: String;
-	startDate: string;
-	endDate: string;
+	startDate: String;
+	endDate: String;
 
 	states: String[] = [
 		'AL', 'AK', "AZ", 'AR', 'CA', "CO", "CT", "DE",
@@ -41,7 +41,7 @@ export class InputFormComponent {
 		criteria.startDateTime = new Date(this.startDate);
 		criteria.endDateTime = new Date(this.endDate);
 		this.events.getEventsList(criteria).then(data => {
-			console.log(data);
+			// console.log(data);
 			this.searchClick.emit(data);
 		});
 	}

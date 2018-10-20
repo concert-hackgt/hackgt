@@ -16,22 +16,30 @@ export class ShowDataComponent implements OnInit {
   textDetail: String;
   timeStart: String;
   dateStart: String;
+  rawData = {};
+  // table: Number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19];
+  status: boolean = false;
+  currentData = [];
 
   constructor(private events: EventsService) {}
 
   ngOnInit() { }
 
-  recieveMess(event) {
-    // console.log(event);
-    this.textDetail = event[0].info;
-    this.cardTitle = event[0].name;
-    this.dateStart = event[0].dates.start.localDate;
-    this.timeStart = event[0].dates.start.localTime;
-    this.imageSrc = event[0].images.url;
-    this.subTitle = event[0].accessibility.info;
-    this.atlContent = event[0].cardTitle;
-    console.log(this.cardTitle);
-    console.log(this.textDetail);
-    console.log(this.imageSrc);
+  recieveMess($event) {
+    for (var i = 0; i < $event.length; i++) {
+      this.rawData = {};
+      this.rawData['textDetail'] = $event[i]["name"];
+      this.rawData['cardTitle'] = $event[i]["name"];
+      this.rawData['dateStart'] = $event[i]["dates"]["start"]["localDate"];
+      this.rawData['timeStart'] = $event[i]["dates"]["start"]["localTime"];
+      this.rawData['imageSrc'] = $event[i]["images"][0]["url"];
+      this.rawData['subTitle'] = $event[i]["promoters"][0]["name"];
+      this.rawData['atlContent'] = $event[i]["name"];
+      this.currentData.push(this.rawData);
+      if (i == $event.length - 1) {
+        this.status = true;
+      }
+    }
+    console.log(this.currentData);
   }
 }

@@ -8,16 +8,15 @@ export class EventCriteria {
   page: number = 0;
 
   getCityLink(): String {
-    console.log(this.city)
-    return this.city == "" ? this.city : "&city=" + this.city;
+    return this.city == "" || this.city == undefined ? "" : "&city=" + this.city;
   }
 
   getStateLink(): String {
-    return this.state == "" ? this.state : "&stateCode=" + this.state;
+    return this.state == "" || this.state == undefined ? "" : "&stateCode=" + this.state;
   }
 
   getCountryCodeLink(): String {
-    return this.countryCode == "" ? this.countryCode : "&countryCode=" + this.countryCode;
+    return this.countryCode == "" || this.countryCode == undefined ? "" : "&countryCode=" + this.countryCode;
   }
 
   getPageLink(): String {
