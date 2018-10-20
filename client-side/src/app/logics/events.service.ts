@@ -13,18 +13,16 @@ export class EventsService {
 
   getEventsList(criteria: EventCriteria): any {
     return new Promise(resolve => {
-      var city = criteria.city;
       var startDateTime = criteria.startDateTime.toISOString().replace(/\.[0-9]{3}/, '');
       var endDateTime = criteria.endDateTime.toISOString().replace(/\.[0-9]{3}/, '');
-      var countryCode = criteria.countryCode;
       var url = environment.HOST + "/discovery/v2/events.json?apikey=" 
-        + environment.APIKEY + "&city" + city + "" + "&startDateTime=" + startDateTime
-        + "&endDateTime=" + endDateTime + "&countryCode=" + countryCode
-
-      this.methodHelper.get(url)
-      .subscribe((data) => {
-        var res = data._embedded.events;
-        resolve(res);
+        + environment.APIKEY + criteria.getCityLink() + "&startDateTime=" + startDateTime
+        + "&endDateTime=" + endDateTime + criteria.getCountryCodeLink() + criteria.getStateLink();
+      this.methodHelper.get(url).subscribe((data) => {
+        if (data._embedded != undefined) {
+          resolve(data._embedded.events);
+        }
+        resolve([])
       });
     });
   }
