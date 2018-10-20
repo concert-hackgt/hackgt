@@ -27,6 +27,9 @@ export class ShowDataComponent implements OnInit {
   ngOnInit() { }
 
   recieveMess($event) {
+    if (this.currentData.length != 0) {
+      this.currentData = [];
+    }
     if ($event.length != 0) {
       for (var i = 0; i < $event.length; i++) {
         this.rawData = {};
@@ -45,6 +48,5 @@ export class ShowDataComponent implements OnInit {
     } else {
       this.failed = true;
     }
-    console.log(this.currentData);
   }
 }

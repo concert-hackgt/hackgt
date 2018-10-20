@@ -19,7 +19,6 @@ export class EventsService {
         + environment.APIKEY + criteria.getKeyword() + criteria.getCityLink() 
         + "&startDateTime=" + startDateTime + "&endDateTime=" + endDateTime 
         + criteria.getCountryCodeLink() + criteria.getStateLink() + "&segmentName=Music";
-      console.log(url);
       this.methodHelper.get(url).subscribe((data) => {
         if (data._embedded != undefined) {
           resolve(data._embedded.events);

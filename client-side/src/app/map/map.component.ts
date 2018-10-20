@@ -4,7 +4,6 @@ import { EventCriteriaToMapService } from '../services/event-criteria-to-map.ser
 import { EventsService } from '../logics/events.service';
 
 declare var google: any;
-
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -24,63 +23,99 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     var geocoder = new google.maps.Geocoder();
     var self = this;
-    this.eventCriteriaTransfer.getCriteria$.subscribe(criteria => {
-      geocoder.geocode({'address': criteria.city}, function(results, status) {
-        if (status.toString() == 'OK') {
+    this.eventCriteriaTransfer.getCriteria1$.subscribe(info => {
+      var init = info.pos;
+      var mapProp = {
+        center: init,
+        zoom: 10,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      self.map = new google.maps.Map(self.gmapElement.nativeElement, mapProp);
+      for (var e of info.data) {
+        if (e._embedded != undefined && e._embedded.venues != undefined) {
           var location = {
-            "lat": results[0].geometry.location.lat(),
-            "lng": results[0].geometry.location.lng(),
+            "lat": parseFloat(e._embedded.venues[0].location.latitude),
+            "lng": parseFloat(e._embedded.venues[0].location.longitude)
           }
-          var mapProp = {
-            center: location,
-            zoom: 10,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-          };
-          self.map = new google.maps.Map(self.gmapElement.nativeElement, mapProp);
-          var infoWindows = []
-          self.events.getEventsList(criteria).then(data => {
-            console.log(criteria)
-            for (var e of data) {
-              if (e._embedded != undefined && e._embedded.venues != undefined) {
-                var location = {
-                  "lat": parseFloat(e._embedded.venues[0].location.latitude),
-                  "lng": parseFloat(e._embedded.venues[0].location.longitude)
-                }
-                // infoWindows.push(new google.maps.InfoWindow({
-                //   content: self.infoWindow()
-                // }));
-                var marker = new google.maps.Marker({position: location, map: self.map, title: "Hello"});
-                marker.info = new google.maps.InfoWindow({
-                  content: '<b>Speed:</b>'
-                });
-                google.maps.event.addListener(marker, 'click', function() {  
-                  // this = marker
-                  var marker_map = this.getMap();
-                  this.info.open(marker_map);
-                  // this.info.open(marker_map, this);
-                  // Note: If you call open() without passing a marker, the InfoWindow will use the position specified upon construction through the InfoWindowOptions object literal.
-                });
-
-                // google.maps.event.addListener(marker, 'click', function() {
-                //   marker.info.open(self.map, marker);
-                // })
-                // marker.addListener('mouseover', function() {
-                //   infowindow.open(self.map, marker);
-                // });
-                // marker.addListener('mouseout', function() {
-                //   infowindow.close();
-                // });
-                // google.maps.event.addListener(marker, 'click', function() {
-                //   infoWindows[infoWindows.length - 1].open(self.map, marker);
-                // })
-              }
-            }
+          // infoWindows.push(new google.maps.InfoWindow({
+          //   content: self.infoWindow()
+          // }));
+          var marker = new google.maps.Marker({position: location, map: self.map, title: "Hello"});
+          marker.info = new google.maps.InfoWindow({
+            content: '<b>Speed:</b>'
           });
-        } else {
-          alert('Geocode was not successful for the following reason: ' + status);
+          google.maps.event.addListener(marker, 'click', function() {  
+            // this = marker
+            var marker_map = this.getMap();
+            this.info.open(marker_map);
+            console.log(this);
+            // this.info.open(marker_map, this);
+            // Note: If you call open() without passing a marker, the InfoWindow will use the position specified upon construction through the InfoWindowOptions object literal.
+          });
         }
-      });
+      }
     })
+
+
+    // this.eventCriteriaTransfer.getCriteria$.subscribe(criteria => {
+    //   geocoder.geocode({'address': criteria.city}, function(results, status) {
+    //     if (status.toString() == 'OK') {
+    //       var location = {
+    //         "lat": results[0].geometry.location.lat(),
+    //         "lng": results[0].geometry.location.lng(),
+    //       }
+    //       var mapProp = {
+    //         center: location,
+    //         zoom: 10,
+    //         mapTypeId: google.maps.MapTypeId.ROADMAP
+    //       };
+    //       self.map = new google.maps.Map(self.gmapElement.nativeElement, mapProp);
+    //       console.log("ABCD");
+    //       var infoWindows = []
+    //       self.events.getEventsList(criteria).then(data => {
+    //         console.log(criteria)
+    //         for (var e of data) {
+    //           if (e._embedded != undefined && e._embedded.venues != undefined) {
+    //             var location = {
+    //               "lat": parseFloat(e._embedded.venues[0].location.latitude),
+    //               "lng": parseFloat(e._embedded.venues[0].location.longitude)
+    //             }
+    //             // infoWindows.push(new google.maps.InfoWindow({
+    //             //   content: self.infoWindow()
+    //             // }));
+    //             var marker = new google.maps.Marker({position: location, map: self.map, title: "Hello"});
+    //             marker.info = new google.maps.InfoWindow({
+    //               content: '<b>Speed:</b>'
+    //             });
+    //             google.maps.event.addListener(marker, 'click', function() {  
+    //               // this = marker
+    //               var marker_map = this.getMap();
+    //               this.info.open(marker_map);
+    //               console.log(this);
+    //               // this.info.open(marker_map, this);
+    //               // Note: If you call open() without passing a marker, the InfoWindow will use the position specified upon construction through the InfoWindowOptions object literal.
+    //             });
+
+    //             // google.maps.event.addListener(marker, 'click', function() {
+    //             //   marker.info.open(self.map, marker);
+    //             // })
+    //             // marker.addListener('mouseover', function() {
+    //             //   infowindow.open(self.map, marker);
+    //             // });
+    //             // marker.addListener('mouseout', function() {
+    //             //   infowindow.close();
+    //             // });
+    //             // google.maps.event.addListener(marker, 'click', function() {
+    //             //   infoWindows[infoWindows.length - 1].open(self.map, marker);
+    //             // })
+    //           }
+    //         }
+    //       });
+    //     } else {
+    //       alert('Geocode was not successful for the following reason: ' + status);
+    //     }
+    //   });
+    // })
   }
 
   infoWindow(): string {

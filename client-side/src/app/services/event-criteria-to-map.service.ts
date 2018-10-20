@@ -8,13 +8,18 @@ import { EventCriteria } from '../models/EventCriteria';
 export class EventCriteriaToMapService {
 
   public eventCriteria = new Subject<EventCriteria>();
+  public eventCriteria1 = new Subject<any>();
 
   getCriteria$ = this.eventCriteria.asObservable();
+  getCriteria1$ = this.eventCriteria1.asObservable();
 
   constructor() { }
 
   setCriteria(criteria): void {
-    console.log(criteria + "abc");
     this.eventCriteria.next(criteria);
+  }
+
+  setCriteria1(data): void {
+    this.eventCriteria1.next(data);
   }
 }

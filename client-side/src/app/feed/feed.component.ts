@@ -14,7 +14,6 @@ export class FeedComponent implements OnInit {
   constructor() { }
 
   receiveData(event) {
-    console.log(event)
     this.eventCriteria = event;
   }
 
@@ -24,7 +23,6 @@ export class FeedComponent implements OnInit {
 
   toggleView(): void {
       this.displaySmallFeed = !this.displaySmallFeed;
-    console.log(this.displaySmallFeed);
   }
 
   validatePriceRange(e) : Boolean {

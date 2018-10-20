@@ -64,18 +64,21 @@ export class InputFormComponent implements OnInit{
 											defaultCriteria.endDateTime.setFullYear(2019);
 											defaultCriteria.city = value[count-3]
 											defaultCriteria.state = value[count - 2].substring(0,2);
-											// console.log(defaultCriteria);
 											self.events.getEventsList(defaultCriteria).then(data => {
+												self.eventCriteriaTransfer.setCriteria1({
+													"pos": pos,
+													"data": data
+												});
 												self.searchClick.emit(data);
 											});
 											self.eventCriteriaTransfer.setCriteria(defaultCriteria);
 									}
 									else  {
-											// x.innerHTML = "address not found";
+											alert("Address not found");
 									}
 							}
 							else {
-									// x.innerHTML = "Geocoder failed due to: " + status;
+									alert(status);
 							}
 					}
 			);
@@ -93,10 +96,21 @@ export class InputFormComponent implements OnInit{
 		criteria.state = this.stateInput;
 		criteria.startDateTime = new Date(this.startDate);
 		criteria.endDateTime = new Date(this.endDate);
-		console.log(criteria)
 		this.eventCriteriaTransfer.setCriteria(criteria);
+		var self = this;
 		this.events.getEventsList(criteria).then(data => {
-			console.log(data);
+			var geocoder;
+			geocoder = new google.maps.Geocoder();
+			geocoder.geocode({'address': this.cityInput}, function(results, status){
+				 var pos = {
+					 "lat": results[0].geometry.location.lat(),
+					 "lng": results[0].geometry.location.lng()
+				 }
+				 self.eventCriteriaTransfer.setCriteria1({
+					"pos": pos,
+					"data": data
+				});
+			})
 			this.searchClick.emit(data);
 		});
 	}
