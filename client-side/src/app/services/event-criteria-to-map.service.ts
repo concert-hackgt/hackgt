@@ -14,7 +14,7 @@ export class EventCriteriaToMapService {
   constructor() { }
 
   setCriteria(criteria): void {
-    console.log(criteria + "abc")
+    console.log(criteria + "abc");
     this.eventCriteria.next(criteria);
   }
 }
