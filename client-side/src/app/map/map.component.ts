@@ -38,7 +38,6 @@ export class MapComponent implements OnInit {
           self.map = new google.maps.Map(self.gmapElement.nativeElement, mapProp);
           self.events.getEventsList(criteria).then(data => {
             for (var e of data) {
-              console.log(e);
               if (e._embedded != undefined && e._embedded.venues != undefined) {
                 var location = {
                   "lat": parseFloat(e._embedded.venues[0].location.latitude),

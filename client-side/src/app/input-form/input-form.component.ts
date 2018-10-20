@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+
+import {Component, OnInit} from '@angular/core';
 import { zip } from 'rxjs/operators';
 import { EventCriteria } from '../models/EventCriteria';
 import { EventsService } from '../logics/events.service';
@@ -11,19 +12,11 @@ import { EventCriteriaToMapService } from '../services/event-criteria-to-map.ser
 })
 export class InputFormComponent implements OnInit {
 
-	@ViewChild('gmap') gmapElement: any;
-  	map: google.maps.Map;
+	// @ViewChild('gmap') gmapElement: any;
+  	// map: google.maps.Map;
 
 	ngOnInit() {
-		// var atlanta = {lat: 33.758688, lng: -84.391449};
-		// var mapProp = {
-		// 	center: atlanta,
-		// 	zoom: 15,
-		// 	mapTypeId: google.maps.MapTypeId.ROADMAP
-		// };
-		// this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
-		// var marker = new google.maps.Marker({position: uluru, map: this.map});
-		// var marker = new google.maps.Marker({position: uluru1, map: this.map});
+		// this.queryDefaultEvent();
 	}
 
 	constructor(private events: EventsService,
@@ -38,17 +31,26 @@ export class InputFormComponent implements OnInit {
 	states: string[] = [
 		'AL', 'AK', "AZ", 'AR', 'CA', "CO", "CT", "DE",
 		"DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA",
-		"KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", 
+		"KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN",
 		"MS", "MO", "MT", "NE", "NV", "NV", "NH", "NJ",
 		"NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA",
 		"RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA",
-		"WA", "WV", "WI", "WY"                                 
-	]
+		"WA", "WV", "WI", "WY"
+	];
 
 	// Get the state selected
 	stateSelected (event) {
 		this.stateInput = event;
 	}
+
+//   queryDefaultEvent() : void {
+//     var a  = new EventCriteria();
+//     a.endDateTime.setFullYear(2019);
+
+//     this.events.getEventsList(a).then(data => {
+//       this.eventCriteria = data;
+//     });
+//   }
 
 	// Button click function
 	goClick() : void {
@@ -60,4 +62,12 @@ export class InputFormComponent implements OnInit {
 		criteria.endDateTime = new Date(this.endDate);
 		this.eventCriteriaTransfer.setCriteria(criteria);
 	}
+
+  validatePriceRange(e) : Boolean {
+	  return e.priceRanges && e.priceRanges[0] && e.priceRanges[0].min && e.priceRanges[0].max;
+  }
+
+  validateDate(e) : Boolean {
+    return e.dates && e.dates.start && e.dates.start.dateTime;
+  }
 }
