@@ -4,6 +4,7 @@ import { EventCriteriaToMapService } from '../services/event-criteria-to-map.ser
 import { EventsService } from '../logics/events.service';
 
 declare var google: any;
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -36,7 +37,6 @@ export class MapComponent implements OnInit {
             mapTypeId: google.maps.MapTypeId.ROADMAP
           };
           self.map = new google.maps.Map(self.gmapElement.nativeElement, mapProp);
-          console.log("ABCD");
           var infoWindows = []
           self.events.getEventsList(criteria).then(data => {
             console.log(criteria)
@@ -57,7 +57,6 @@ export class MapComponent implements OnInit {
                   // this = marker
                   var marker_map = this.getMap();
                   this.info.open(marker_map);
-                  console.log(this);
                   // this.info.open(marker_map, this);
                   // Note: If you call open() without passing a marker, the InfoWindow will use the position specified upon construction through the InfoWindowOptions object literal.
                 });
