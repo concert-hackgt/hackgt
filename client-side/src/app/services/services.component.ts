@@ -19,10 +19,6 @@ export class ServicesComponent implements OnInit {
     private events: EventsService) { }
 
   ngOnInit() {
-    // this.methodHelper.get("http://localhost:8000/api")
-    // .subscribe((result) => {
-    //   console.log(result);
-    // })
     var a  = new EventCriteria();
     a.endDateTime.setFullYear(2019);
 
