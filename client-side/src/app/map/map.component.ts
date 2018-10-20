@@ -39,6 +39,7 @@ export class MapComponent implements OnInit {
           console.log("ABCD");
           var infoWindows = []
           self.events.getEventsList(criteria).then(data => {
+            console.log(criteria)
             for (var e of data) {
               if (e._embedded != undefined && e._embedded.venues != undefined) {
                 var location = {
