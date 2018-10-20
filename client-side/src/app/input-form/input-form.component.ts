@@ -17,6 +17,7 @@ export class InputFormComponent {
 	zipInput: String;
 	startDate: String;
 	endDate: String;
+	keyWord: String;
 
 	states: String[] = [
 		'AL', 'AK', "AZ", 'AR', 'CA', "CO", "CT", "DE",
