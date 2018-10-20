@@ -1,14 +1,14 @@
-<!-- <mat-form-field class="example-form-field">
-  <input matInput type="text" placeholder="Clearable input" [(ngModel)]="value">
-  <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-	<mat-icon>close</mat-icon>
-  </button>
-</mat-form-field> -->
-
-
-<div class="form-group">
+<div class="form-group col">
 	<mat-card>
-		<div class="form-inline form-row">
+		<div class="form-row">
+			<div class="form-group">
+				<div class="col">
+					<mat-form-field appearance="outline">
+						<mat-label>Keyword</mat-label>
+						<input type="text" matInput placeholder="Keyword" [(ngModel)]="keyWordInput">
+					</mat-form-field>
+				</div>
+			</div>
 			<div class="form-group">
 				<div class="col">
 					<mat-form-field appearance="outline">
@@ -37,32 +37,30 @@
 					</mat-form-field>
 				</div>
 			</div>
-		</div>
-		<div class="form-inline form-row">
-				<div class="form-group">
-					<div class="col">
-						<mat-form-field>
-							<input matInput [matDatepicker]="startpicker" placeholder="Start Date" [(ngModel)]="startDate">
-							<mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
-							<mat-datepicker #startpicker></mat-datepicker>
-						</mat-form-field>
-					</div>
+			<div class="form-group">
+				<div class="col">
+					<mat-form-field>
+						<input matInput [matDatepicker]="startpicker" placeholder="Start Date" [(ngModel)]="startDate">
+						<mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+						<mat-datepicker #startpicker></mat-datepicker>
+					</mat-form-field>
 				</div>
-				<div class="form-group">
-					<div class="col">
-						<mat-form-field>
-							<input matInput [matDatepicker]="endpicker" placeholder="End Date" [(ngModel)]="endDate">
-							<mat-datepicker-toggle matSuffix [for]="endpicker"></mat-datepicker-toggle>
-							<mat-datepicker #endpicker></mat-datepicker>
-						</mat-form-field>
-					</div>
+			</div>
+		<!-- </div> -->
+			<div class="form-group">
+				<div class="col">
+					<mat-form-field>
+						<input matInput [matDatepicker]="endpicker" placeholder="End Date" [(ngModel)]="endDate">
+						<mat-datepicker-toggle matSuffix [for]="endpicker"></mat-datepicker-toggle>
+						<mat-datepicker #endpicker></mat-datepicker>
+					</mat-form-field>
 				</div>
-
-        <div class="form-group">
-          <div class="col">
-            <button type="button" mat-mini-fab (click)="goClick()" color="primary">Go</button>
-          </div>
-        </div>
+			</div>
+			<div class="form-group">
+				<div class="col">
+					<button type="button" mat-mini-fab (click)="goClick()" color="primary">Go</button>
+				</div>
+			</div>
 		</div>
 	</mat-card>
 
