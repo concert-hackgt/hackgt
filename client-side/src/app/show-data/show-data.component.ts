@@ -19,6 +19,7 @@ export class ShowDataComponent implements OnInit {
   rawData = {};
   // table: Number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19];
   status: boolean = false;
+  failed: boolean = false;
   currentData = [];
 
   constructor(private events: EventsService) {}
@@ -26,19 +27,23 @@ export class ShowDataComponent implements OnInit {
   ngOnInit() { }
 
   recieveMess($event) {
-    for (var i = 0; i < $event.length; i++) {
-      this.rawData = {};
-      this.rawData['textDetail'] = $event[i]["name"];
-      this.rawData['cardTitle'] = $event[i]["name"];
-      this.rawData['dateStart'] = $event[i]["dates"]["start"]["localDate"];
-      this.rawData['timeStart'] = $event[i]["dates"]["start"]["localTime"];
-      this.rawData['imageSrc'] = $event[i]["images"][0]["url"];
-      this.rawData['subTitle'] = $event[i]["promoters"][0]["name"];
-      this.rawData['atlContent'] = $event[i]["name"];
-      this.currentData.push(this.rawData);
-      if (i == $event.length - 1) {
-        this.status = true;
+    if ($event.length != 0) {
+      for (var i = 0; i < $event.length; i++) {
+        this.rawData = {};
+        this.rawData['textDetail'] = $event[i]["name"];
+        this.rawData['cardTitle'] = $event[i]["name"];
+        this.rawData['dateStart'] = $event[i]["dates"]["start"]["localDate"];
+        this.rawData['timeStart'] = $event[i]["dates"]["start"]["localTime"];
+        this.rawData['imageSrc'] = $event[i]["images"][9]["url"];
+        this.rawData['subTitle'] = $event[i]["_embedded"]["venues"][0]["name"];
+        this.rawData['atlContent'] = $event[i]["_embedded"]["venues"][0]["name"];
+        this.currentData.push(this.rawData);
+        if (i == $event.length - 1) {
+          this.status = true;
+        }
       }
+    } else {
+      this.failed = true;
     }
     console.log(this.currentData);
   }

@@ -2,6 +2,9 @@
 .example-card {
     max-width: 400px;
     background-color: grey;
+    margin: 10px;
+    margin-left: 56px;
+    margin-top: 50px;
   }
 
   .example-header-image {
