@@ -1,24 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { zip } from 'rxjs/operators';
 import { EventCriteria } from '../models/EventCriteria';
 import { EventsService } from '../logics/events.service';
+import { EventCriteriaToMapService } from '../services/event-criteria-to-map.service';
 
 @Component({
 	selector: 'app-input-form',
 	templateUrl: './input-form.component.html',
 	styleUrls: ['./input-form.component.css']
 })
-export class InputFormComponent {
+export class InputFormComponent implements OnInit {
 
-	constructor(private events: EventsService) {}
+	@ViewChild('gmap') gmapElement: any;
+  	map: google.maps.Map;
 
-	cityInput: String;
-	stateInput: String;
-	zipInput: String;
+	ngOnInit() {
+		// var atlanta = {lat: 33.758688, lng: -84.391449};
+		// var mapProp = {
+		// 	center: atlanta,
+		// 	zoom: 15,
+		// 	mapTypeId: google.maps.MapTypeId.ROADMAP
+		// };
+		// this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+		// var marker = new google.maps.Marker({position: uluru, map: this.map});
+		// var marker = new google.maps.Marker({position: uluru1, map: this.map});
+	}
+
+	constructor(private events: EventsService,
+		private eventCriteriaTransfer: EventCriteriaToMapService) {}
+
+	cityInput: string;
+	stateInput: string;
+	zipInput: string;
 	startDate: string;
 	endDate: string;
 
-	states: String[] = [
+	states: string[] = [
 		'AL', 'AK', "AZ", 'AR', 'CA', "CO", "CT", "DE",
 		"DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA",
 		"KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", 
@@ -35,13 +52,12 @@ export class InputFormComponent {
 
 	// Button click function
 	goClick() : void {
+		var geocoder = new google.maps.Geocoder();
 		var criteria  = new EventCriteria();
 		criteria.city = this.cityInput;
 		criteria.state = this.stateInput;
 		criteria.startDateTime = new Date(this.startDate);
 		criteria.endDateTime = new Date(this.endDate);
-		this.events.getEventsList(criteria).then(data => {
-			console.log(data);
-		});
+		this.eventCriteriaTransfer.setCriteria(criteria);
 	}
 }
