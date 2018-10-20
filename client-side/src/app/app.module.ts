@@ -15,7 +15,6 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { FeedComponent } from './feed/feed.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
