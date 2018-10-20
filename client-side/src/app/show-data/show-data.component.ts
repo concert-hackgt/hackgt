@@ -17,7 +17,6 @@ export class ShowDataComponent implements OnInit {
   timeStart: String;
   dateStart: String;
   rawData = {};
-  // table: Number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19];
   status: boolean = false;
   failed: boolean = false;
   currentData = [];
@@ -28,6 +27,7 @@ export class ShowDataComponent implements OnInit {
 
   recieveMess($event) {
     if ($event.length != 0) {
+      this.currentData = [];
       for (var i = 0; i < $event.length; i++) {
         this.rawData = {};
         this.rawData['textDetail'] = $event[i]["name"];

@@ -1,4 +1,3 @@
-
 <app-input-form (searchClick)="recieveMess($event)"> </app-input-form>
 
 <div *ngIf="status" class="form-inline">
@@ -17,7 +16,7 @@
         <hr>
         <div class="mainControl">
           <mat-chip-list>
-            <mat-chip color="primary" selected>{{item.dateStart}} - {{item.timeStart}}</mat-chip>
+            <mat-chip color="primary" selected>{{item.dateStart}} at {{item.timeStart}}</mat-chip>
           </mat-chip-list>
         </div>
         <hr>
