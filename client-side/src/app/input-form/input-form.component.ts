@@ -24,6 +24,7 @@ export class InputFormComponent implements OnInit{
 	zipInput: string;
 	startDate: string;
 	endDate: string;
+	keyWord: String;
 
 	states: string[] = [
 		'AL', 'AK', "AZ", 'AR', 'CA', "CO", "CT", "DE",
@@ -33,7 +34,7 @@ export class InputFormComponent implements OnInit{
 		"NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA",
 		"RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA",
 		"WA", "WV", "WI", "WY"
-	];
+	]
 
 	// Get the state selected
 	stateSelected (event) {
@@ -59,7 +60,8 @@ export class InputFormComponent implements OnInit{
 		criteria.endDateTime = new Date(this.endDate);
 		this.eventCriteriaTransfer.setCriteria(criteria);
 		this.events.getEventsList(criteria).then(data => {
-      		this.searchClick.emit(data);
+			// console.log(data);
+			this.searchClick.emit(data);
 		});
 	}
 }

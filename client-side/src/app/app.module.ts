@@ -13,6 +13,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
+import { ShowDataComponent } from './show-data/show-data.component';
+import { MatChipsModule } from '@angular/material/chips';
 import { MapComponent } from './map/map.component';
 import { FeedComponent } from './feed/feed.component';
 
@@ -22,6 +24,7 @@ import { FeedComponent } from './feed/feed.component';
     AppComponent,
     HeaderComponent,
     InputFormComponent,
+    ShowDataComponent,
     MapComponent,
     FeedComponent
   ],
@@ -40,6 +43,7 @@ import { FeedComponent } from './feed/feed.component';
     MatAutocompleteModule,
     MatSelectModule,
     MatNativeDateModule,
+    MatChipsModule,
     MatToolbarModule
   ],
   providers: [MatDatepickerModule],
