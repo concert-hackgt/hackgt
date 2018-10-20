@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { zip } from 'rxjs/operators';
 import { EventCriteria } from '../models/EventCriteria';
 import { EventsService } from '../logics/events.service';
@@ -8,7 +8,7 @@ import { EventsService } from '../logics/events.service';
 	templateUrl: './input-form.component.html',
 	styleUrls: ['./input-form.component.css']
 })
-export class InputFormComponent {
+export class InputFormComponent implements OnInit{
 
 
 	constructor(private events: EventsService) {}
@@ -30,28 +30,33 @@ export class InputFormComponent {
 		"WA", "WV", "WI", "WY"
 	]
 
+  ngOnInit() {
+    this.queryDefaultEvent();
+  }
+
 	// Get the state selected
 	stateSelected (event) {
 		this.stateInput = event;
 	}
 
+  queryDefaultEvent() : void {
+    var a  = new EventCriteria();
+    a.endDateTime.setFullYear(2019);
+
+    this.events.getEventsList(a).then(data => {
+      this.eventCriteria = data;
+    });
+  }
+
 	// Button click function
 	goClick() : void {
-<<<<<<< HEAD
-		var a  = new EventCriteria();
-		a.endDateTime.setFullYear(2019);
-
-		this.events.getEventsList(a).then(data => {
-      this.eventCriteria = data;
-=======
 		var criteria  = new EventCriteria();
 		criteria.city = this.cityInput;
 		criteria.state = this.stateInput;
 		criteria.startDateTime = new Date(this.startDate);
 		criteria.endDateTime = new Date(this.endDate);
 		this.events.getEventsList(criteria).then(data => {
->>>>>>> bc244be76345c3e5f2396299c5deea24b4e6775d
-			console.log(data);
+      this.eventCriteria = data;
 		});
 	}
 
