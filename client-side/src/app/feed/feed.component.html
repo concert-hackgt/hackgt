@@ -1,6 +1,7 @@
 <app-input-form (searchClick)="receiveData($event)"></app-input-form>
+<button type="button" (click)="toggleView()">Switch View</button>
 
-<div class="event-list-container">
+<div class="event-list-container" *ngIf="displaySmallFeed">
   <mat-card class="event-list-card" *ngFor="let e of eventCriteria">
     <mat-card-content>
       <div>
@@ -27,3 +28,5 @@
       </div>
     </mat-card-content>
   </mat-card>
+</div>
+

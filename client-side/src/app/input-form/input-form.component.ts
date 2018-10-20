@@ -13,7 +13,7 @@ export class InputFormComponent implements OnInit{
   @Output() searchClick: EventEmitter<any> = new EventEmitter();
 
 	ngOnInit() {
-		// this.queryDefaultEvent();
+		this.queryDefaultEvent();
 	}
 
 	constructor(private events: EventsService,
@@ -42,17 +42,54 @@ export class InputFormComponent implements OnInit{
 	}
 
   queryDefaultEvent() : void {
-    var a  = new EventCriteria();
-    a.endDateTime.setFullYear(2019);
+		var self = this;
+		navigator.geolocation.getCurrentPosition(function(position) {
+			var pos = {
+				lat: position.coords.latitude,
+				lng: position.coords.longitude
+			};
+			var geocoder;
+			geocoder = new google.maps.Geocoder();
+			var latlng = new google.maps.LatLng(pos.lat, pos.lng);
 
-    this.events.getEventsList(a).then(data => {
-      this.searchClick.emit(data);
-    });
+			geocoder.geocode(
+					{'latLng': latlng}, 
+					function(results, status) {
+							if (status == google.maps.GeocoderStatus.OK) {
+									if (results[0]) {
+											var add= results[0].formatted_address ;
+											var value=add.split(", ");
+											var defaultCriteria = new EventCriteria()
+											var count = value.length
+											defaultCriteria.endDateTime.setFullYear(2019);
+											defaultCriteria.city = value[count-3]
+											defaultCriteria.state = value[count - 2].substring(0,2);
+											self.events.getEventsList(defaultCriteria).then(data => {
+												self.eventCriteriaTransfer.setCriteria1({
+													"pos": pos,
+													"data": data
+												});
+												self.searchClick.emit(data);
+											});
+											self.eventCriteriaTransfer.setCriteria(defaultCriteria);
+									}
+									else  {
+											alert("Address not found");
+									}
+							}
+							else {
+									alert(status);
+							}
+					}
+			);
+			// map.setCenter(pos);
+		}, function() {
+			// handleLocationError(true, infoWindow, map.getCenter());
+		});
   }
 
 	// Button click function
 	goClick() : void {
-		var geocoder = new google.maps.Geocoder();
 		var criteria  = new EventCriteria();
 		criteria.keyword = this.keyword;
 		criteria.city = this.cityInput;
@@ -60,8 +97,20 @@ export class InputFormComponent implements OnInit{
 		criteria.startDateTime = new Date(this.startDate);
 		criteria.endDateTime = new Date(this.endDate);
 		this.eventCriteriaTransfer.setCriteria(criteria);
+		var self = this;
 		this.events.getEventsList(criteria).then(data => {
-			// console.log(data);
+			var geocoder;
+			geocoder = new google.maps.Geocoder();
+			geocoder.geocode({'address': this.cityInput}, function(results, status){
+				 var pos = {
+					 "lat": results[0].geometry.location.lat(),
+					 "lng": results[0].geometry.location.lng()
+				 }
+				 self.eventCriteriaTransfer.setCriteria1({
+					"pos": pos,
+					"data": data
+				});
+			})
 			this.searchClick.emit(data);
 		});
 	}

@@ -9,15 +9,20 @@ import {EventCriteria} from "../models/EventCriteria";
 export class FeedComponent implements OnInit {
 
   eventCriteria: EventCriteria[] = [];
+  displaySmallFeed: boolean = false;
 
   constructor() { }
 
   receiveData(event) {
-    console.log(event)
     this.eventCriteria = event;
   }
 
   ngOnInit() {
+    this.displaySmallFeed = false;
+  }
+
+  toggleView(): void {
+      this.displaySmallFeed = !this.displaySmallFeed;
   }
 
   validatePriceRange(e) : Boolean {
