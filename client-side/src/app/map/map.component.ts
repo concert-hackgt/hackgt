@@ -44,7 +44,7 @@ export class MapComponent implements OnInit {
           marker.info = new google.maps.InfoWindow({
             content: '<b>Speed:</b>'
           });
-          google.maps.event.addListener(marker, 'click', function() {  
+          google.maps.event.addListener(marker, 'click', function() {
             // this = marker
             var marker_map = this.getMap();
             this.info.open(marker_map);

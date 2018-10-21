@@ -3,6 +3,7 @@ import { zip } from 'rxjs/operators';
 import { EventCriteria } from '../models/EventCriteria';
 import { EventsService } from '../logics/events.service';
 import { EventCriteriaToMapService } from '../services/event-criteria-to-map.service';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
 	selector: 'app-input-form',
@@ -25,6 +26,10 @@ export class InputFormComponent implements OnInit{
 	zipInput: string;
 	startDate: string;
 	endDate: string;
+	city = new FormControl('', [Validators.required]);
+	state = new FormControl('', [Validators.required]);
+	startpicker = new FormControl('', [Validators.required]);
+	endpicker = new FormControl('', [Validators.required]);
 
 	states: string[] = [
 		'AL', 'AK', "AZ", 'AR', 'CA', "CO", "CT", "DE",
@@ -35,6 +40,14 @@ export class InputFormComponent implements OnInit{
 		"RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA",
 		"WA", "WV", "WI", "WY"
 	]
+
+	getErrorMessage() {
+		return this.city.hasError('required') ? 'You must enter city' : '';
+	}
+
+	getstateErrorMessage() {
+		return this.state.hasError('required') ? 'You must enter state' : '';
+	}
 
 	// Get the state selected
 	stateSelected (event) {
@@ -53,7 +66,7 @@ export class InputFormComponent implements OnInit{
 			var latlng = new google.maps.LatLng(pos.lat, pos.lng);
 
 			geocoder.geocode(
-					{'latLng': latlng}, 
+					{'latLng': latlng},
 					function(results, status) {
 							if (status == google.maps.GeocoderStatus.OK) {
 									if (results[0]) {
@@ -90,29 +103,35 @@ export class InputFormComponent implements OnInit{
 
 	// Button click function
 	goClick() : void {
-		var criteria  = new EventCriteria();
-		criteria.keyword = this.keyword;
-		criteria.city = this.cityInput;
-		criteria.state = this.stateInput;
-		criteria.startDateTime = new Date(this.startDate);
-		criteria.endDateTime = new Date(this.endDate);
-		this.eventCriteriaTransfer.setCriteria(criteria);
-		var self = this;
-		this.events.getEventsList(criteria).then(data => {
-			var geocoder;
-			geocoder = new google.maps.Geocoder();
-			geocoder.geocode({'address': this.cityInput}, function(results, status){
-				 var pos = {
-					 "lat": results[0].geometry.location.lat(),
-					 "lng": results[0].geometry.location.lng()
-				 }
-				 self.eventCriteriaTransfer.setCriteria1({
-					"pos": pos,
-					"data": data
-				});
-			})
-			this.searchClick.emit(data);
-		});
+		if (this.state.hasError('required') || this.city.hasError('required')){
+			alert("You must fill city and state of location you are looking for");
+		} else if(this.startpicker.hasError('required') || this.endpicker.hasError('required')) {
+			alert("You must fill date you are prefer");
+		} else {
+			var criteria  = new EventCriteria();
+			criteria.keyword = this.keyword;
+			criteria.city = this.cityInput;
+			criteria.state = this.stateInput;
+			criteria.startDateTime = new Date(this.startDate);
+			criteria.endDateTime = new Date(this.endDate);
+			this.eventCriteriaTransfer.setCriteria(criteria);
+			var self = this;
+			this.events.getEventsList(criteria).then(data => {
+				var geocoder;
+				geocoder = new google.maps.Geocoder();
+				geocoder.geocode({'address': this.cityInput}, function(results, status){
+					var pos = {
+						"lat": results[0].geometry.location.lat(),
+						"lng": results[0].geometry.location.lng()
+					}
+					self.eventCriteriaTransfer.setCriteria1({
+						"pos": pos,
+						"data": data
+					});
+				})
+				this.searchClick.emit(data);
+			});
+		}
 	}
 }
 

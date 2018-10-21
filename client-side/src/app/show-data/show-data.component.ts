@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EventCriteria } from '../models/EventCriteria';
 import { EventsService } from '../logics/events.service';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+// import { FlipModule } from 'ngx-flip';
 
 @Component({
   selector: 'app-show-data',
@@ -20,6 +22,7 @@ export class ShowDataComponent implements OnInit {
   status: boolean = false;
   failed: boolean = false;
   currentData = [];
+  // flip: String = 'inactive';
 
   constructor(private events: EventsService) {}
 
@@ -48,5 +51,12 @@ export class ShowDataComponent implements OnInit {
     } else {
       this.failed = true;
     }
+  }
+
+  // toggleFlip() {
+  //   this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
+  // }
+  viewPopUp(event) {
+    console.log(event);
   }
 }
