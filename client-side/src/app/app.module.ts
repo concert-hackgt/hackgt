@@ -17,6 +17,7 @@ import { ShowDataComponent } from './show-data/show-data.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { MapComponent } from './map/map.component';
 import { FeedComponent } from './feed/feed.component';
+import { FlipModule } from 'ngx-flip';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { FeedComponent } from './feed/feed.component';
     MatSelectModule,
     MatNativeDateModule,
     MatChipsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    FlipModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
