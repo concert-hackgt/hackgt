@@ -24,6 +24,7 @@ export class MapComponent implements OnInit {
     var geocoder = new google.maps.Geocoder();
     var self = this;
     this.eventCriteriaTransfer.getCriteria1$.subscribe(info => {
+      console.log(info);
       var init = info.pos;
       var mapProp = {
         center: init,
