@@ -27,7 +27,7 @@ export class ShowDataComponent implements OnInit {
   ngOnInit() { }
 
   recieveMess($event) {
-    this.newRawData.emit($event);
+    // this.newRawData.emit($event);
     if (this.currentData.length != 0) {
       this.currentData = [];
     }

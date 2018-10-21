@@ -24,7 +24,6 @@ export class MapComponent implements OnInit {
     var geocoder = new google.maps.Geocoder();
     var self = this;
     this.eventCriteriaTransfer.getCriteria1$.subscribe(info => {
-      console.log(info);
       var init = info.pos;
       var mapProp = {
         center: init,
@@ -32,99 +31,59 @@ export class MapComponent implements OnInit {
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       self.map = new google.maps.Map(self.gmapElement.nativeElement, mapProp);
+      var listSave = {}
       for (var e of info.data) {
+        console.log(e);
         if (e._embedded != undefined && e._embedded.venues != undefined) {
           var location = {
             "lat": parseFloat(e._embedded.venues[0].location.latitude),
             "lng": parseFloat(e._embedded.venues[0].location.longitude)
           }
-          // infoWindows.push(new google.maps.InfoWindow({
-          //   content: self.infoWindow()
-          // }));
-          var marker = new google.maps.Marker({position: location, map: self.map, title: "Hello"});
-          marker.info = new google.maps.InfoWindow({
-            content: '<b>Speed:</b>'
-          });
-          google.maps.event.addListener(marker, 'click', function() {
-            // this = marker
-            var marker_map = this.getMap();
-            this.info.open(marker_map);
-            console.log(this);
-            // this.info.open(marker_map, this);
-            // Note: If you call open() without passing a marker, the InfoWindow will use the position specified upon construction through the InfoWindowOptions object literal.
-          });
+          var threaterName = e._embedded.venues[0].name;
+          var eventGeneral = {
+            "name": e.name
+          }
+          if (Object.keys(listSave).includes(threaterName)) {
+            listSave[threaterName][3].push(eventGeneral);
+          } else {
+            listSave[threaterName] = [
+              location, 
+              e._embedded.venues[0].name,
+              e._embedded.venues[0].address.line1+", "+e._embedded.venues[0].city.name+", "+e._embedded.venues[0].state.name, 
+              [eventGeneral]];
+          }
         }
       }
-    })
-
-
-    // this.eventCriteriaTransfer.getCriteria$.subscribe(criteria => {
-    //   geocoder.geocode({'address': criteria.city}, function(results, status) {
-    //     if (status.toString() == 'OK') {
-    //       var location = {
-    //         "lat": results[0].geometry.location.lat(),
-    //         "lng": results[0].geometry.location.lng(),
-    //       }
-    //       var mapProp = {
-    //         center: location,
-    //         zoom: 10,
-    //         mapTypeId: google.maps.MapTypeId.ROADMAP
-    //       };
-    //       self.map = new google.maps.Map(self.gmapElement.nativeElement, mapProp);
-    //       console.log("ABCD");
-    //       var infoWindows = []
-    //       self.events.getEventsList(criteria).then(data => {
-    //         console.log(criteria)
-    //         for (var e of data) {
-    //           if (e._embedded != undefined && e._embedded.venues != undefined) {
-    //             var location = {
-    //               "lat": parseFloat(e._embedded.venues[0].location.latitude),
-    //               "lng": parseFloat(e._embedded.venues[0].location.longitude)
-    //             }
-    //             // infoWindows.push(new google.maps.InfoWindow({
-    //             //   content: self.infoWindow()
-    //             // }));
-    //             var marker = new google.maps.Marker({position: location, map: self.map, title: "Hello"});
-    //             marker.info = new google.maps.InfoWindow({
-    //               content: '<b>Speed:</b>'
-    //             });
-    //             google.maps.event.addListener(marker, 'click', function() {  
-    //               // this = marker
-    //               var marker_map = this.getMap();
-    //               this.info.open(marker_map);
-    //               console.log(this);
-    //               // this.info.open(marker_map, this);
-    //               // Note: If you call open() without passing a marker, the InfoWindow will use the position specified upon construction through the InfoWindowOptions object literal.
-    //             });
-
-    //             // google.maps.event.addListener(marker, 'click', function() {
-    //             //   marker.info.open(self.map, marker);
-    //             // })
-    //             // marker.addListener('mouseover', function() {
-    //             //   infowindow.open(self.map, marker);
-    //             // });
-    //             // marker.addListener('mouseout', function() {
-    //             //   infowindow.close();
-    //             // });
-    //             // google.maps.event.addListener(marker, 'click', function() {
-    //             //   infoWindows[infoWindows.length - 1].open(self.map, marker);
-    //             // })
-    //           }
-    //         }
-    //       });
-    //     } else {
-    //       alert('Geocode was not successful for the following reason: ' + status);
-    //     }
-    //   });
-    // })
+      for (var element of Object.keys(listSave)) {
+        var marker = new google.maps.Marker({position: listSave[element][0], map: self.map, title: listSave[element][1]});
+        marker.info = new google.maps.InfoWindow({
+          content: self.infoWindow(listSave[element][1], listSave[element][2], listSave[element][3])
+        });
+        google.maps.event.addListener(marker, 'mouseover', function() {
+          var marker_map = this.getMap();
+          this.info.open(marker_map);
+          this.info.open(marker_map, this);
+        });
+        google.maps.event.addListener(marker, 'mouseout', function() {
+          this.info.close();
+        });
+      }
+    });
   }
 
-  infoWindow(): string {
-    // var str = '<div id="content">'+
-    // '<div id="siteNotice">'+
-    // '</div>'+
-    // '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-    // '<div id="bodyContent">'+
+  infoWindow(name, address, listOfShows): string {
+    var str = '<div class="content">'+
+    '<div class="siteNotice">'+
+    '</div>'+
+    `<h3 class="firstHeading" class="firstHeading">${name}</h3>`+
+    '<div class="bodyContent">'+
+    `<p><b>Address</b>: ${address}</p>`+
+    '<p><b>List of shows:</b></p>'+
+    '<ul>'
+    for (var s of listOfShows) {
+      str += `<li>${s.name}</li>`
+    }
+
     // '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
     // 'sandstone rock formation in the southern part of the '+
     // 'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
@@ -138,10 +97,8 @@ export class MapComponent implements OnInit {
     // '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
     // 'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
     // '(last visited June 22, 2009).</p>'+
-    // '</div>'+
-    // '</div>';
-    var str = '<div>'+
-    'Tuan'+
+    str += '</ul>'+
+    '</div>'+
     '</div>';
     return str;
   }

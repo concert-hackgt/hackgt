@@ -56,7 +56,9 @@ export class InputFormComponent implements OnInit{
 
   queryDefaultEvent() : void {
 		var self = this;
+		console.log("b");
 		navigator.geolocation.getCurrentPosition(function(position) {
+			console.log("a");
 			var pos = {
 				lat: position.coords.latitude,
 				lng: position.coords.longitude
