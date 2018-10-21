@@ -105,8 +105,6 @@ export class InputFormComponent implements OnInit{
 	goClick() : void {
 		if (this.state.hasError('required') || this.city.hasError('required')){
 			alert("You must fill city and state of location you are looking for");
-		} else if(this.startpicker.hasError('required') || this.endpicker.hasError('required')) {
-			alert("You must fill date you are prefer");
 		} else {
 			var criteria  = new EventCriteria();
 			criteria.keyword = this.keyword;

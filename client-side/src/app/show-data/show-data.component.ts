@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { EventCriteria } from '../models/EventCriteria';
 import { EventsService } from '../logics/events.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
@@ -10,7 +10,6 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   styleUrls: ['./show-data.component.css']
 })
 export class ShowDataComponent implements OnInit {
-
   imageSrc: String;
   cardTitle: String;
   subTitle: String;
@@ -22,13 +21,13 @@ export class ShowDataComponent implements OnInit {
   status: boolean = false;
   failed: boolean = false;
   currentData = [];
-  // flip: String = 'inactive';
 
   constructor(private events: EventsService) {}
 
   ngOnInit() { }
 
   recieveMess($event) {
+    this.newRawData.emit($event);
     if (this.currentData.length != 0) {
       this.currentData = [];
     }
@@ -53,10 +52,7 @@ export class ShowDataComponent implements OnInit {
     }
   }
 
-  // toggleFlip() {
-  //   this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
-  // }
   viewPopUp(event) {
-    console.log(event);
+    // console.log(event);
   }
 }
