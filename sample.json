@@ -1,0 +1,647 @@
+{
+  "name": "2019 Bridgestone NHL Winter Classic Boston Bruins v Chicago Blackhawks",
+  "type": "event",
+  "id": "vvG1fZ411N-A7B",
+  "test": false,
+  "url": "https://www.ticketmaster.com/2019-bridgestone-nhl-winter-classic-boston-south-bend-indiana-01-01-2019/event/050054A2A384513A",
+  "locale": "en-us",
+  "images": [
+    {
+      "ratio": "16_9",
+      "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_RECOMENDATION_16_9.jpg",
+      "width": 100,
+      "height": 56,
+      "fallback": false
+    },
+    {
+      "ratio": "16_9",
+      "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_RETINA_LANDSCAPE_16_9.jpg",
+      "width": 1136,
+      "height": 639,
+      "fallback": false
+    },
+    {
+      "ratio": "16_9",
+      "url": "https://s1.ticketm.net/dbimages/317623a.jpg",
+      "width": 205,
+      "height": 115,
+      "fallback": false
+    },
+    {
+      "ratio": "4_3",
+      "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_CUSTOM.jpg",
+      "width": 305,
+      "height": 225,
+      "fallback": false
+    },
+    {
+      "ratio": "3_2",
+      "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_ARTIST_PAGE_3_2.jpg",
+      "width": 305,
+      "height": 203,
+      "fallback": false
+    },
+    {
+      "ratio": "16_9",
+      "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_TABLET_LANDSCAPE_16_9.jpg",
+      "width": 1024,
+      "height": 576,
+      "fallback": false
+    },
+    {
+      "ratio": "3_2",
+      "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_TABLET_LANDSCAPE_3_2.jpg",
+      "width": 1024,
+      "height": 683,
+      "fallback": false
+    },
+    {
+      "ratio": "16_9",
+      "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_RETINA_PORTRAIT_16_9.jpg",
+      "width": 640,
+      "height": 360,
+      "fallback": false
+    },
+    {
+      "ratio": "16_9",
+      "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+      "width": 2048,
+      "height": 1152,
+      "fallback": false
+    },
+    {
+      "ratio": "3_2",
+      "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_RETINA_PORTRAIT_3_2.jpg",
+      "width": 640,
+      "height": 427,
+      "fallback": false
+    }
+  ],
+  "sales": {
+    "public": {
+      "startDateTime": "2018-08-28T15:00:00Z",
+      "startTBD": false,
+      "endDateTime": "2019-01-01T18:00:00Z"
+    },
+    "presales": [
+      {
+        "startDateTime": "2018-06-18T15:00:00Z",
+        "endDateTime": "2018-07-14T03:59:00Z",
+        "name": "Chicago Blackhawks Season Ticket Holders"
+      },
+      {
+        "startDateTime": "2018-07-16T15:00:00Z",
+        "endDateTime": "2018-07-23T03:59:00Z",
+        "name": "2019 NHL Winter Classic Priority Presale"
+      },
+      {
+        "startDateTime": "2018-07-24T15:00:00Z",
+        "endDateTime": "2018-08-06T03:59:00Z",
+        "name": "2019 NHL Winter Classic Priority Presale"
+      },
+      {
+        "startDateTime": "2018-07-27T15:00:00Z",
+        "endDateTime": "2018-08-04T03:59:00Z",
+        "name": "2019 NHL Winter Classic Priority Presale"
+      },
+      {
+        "startDateTime": "2018-08-05T14:00:00Z",
+        "endDateTime": "2019-01-01T18:00:00Z",
+        "name": "Official NHL Marketplace"
+      },
+      {
+        "startDateTime": "2018-08-13T15:00:00Z",
+        "endDateTime": "2018-08-27T03:59:00Z",
+        "name": "Bridgestone Presale"
+      },
+      {
+        "startDateTime": "2018-08-14T15:00:00Z",
+        "endDateTime": "2018-08-27T03:59:00Z",
+        "name": "NHL Sponsors/Database"
+      },
+      {
+        "startDateTime": "2018-08-15T15:00:00Z",
+        "endDateTime": "2018-08-27T03:59:00Z",
+        "name": "Ticketmaster Presale"
+      },
+      {
+        "startDateTime": "2018-08-20T15:00:00Z",
+        "endDateTime": "2018-08-25T03:59:00Z",
+        "name": "Notre Dame Presale"
+      },
+      {
+        "startDateTime": "2018-08-21T15:00:00Z",
+        "endDateTime": "2018-08-27T03:59:00Z",
+        "name": "NHL Media Presale"
+      }
+    ]
+  },
+  "dates": {
+    "start": {
+      "localDate": "2019-01-01",
+      "localTime": "13:00:00",
+      "dateTime": "2019-01-01T18:00:00Z",
+      "dateTBD": false,
+      "dateTBA": false,
+      "timeTBA": false,
+      "noSpecificTime": false
+    },
+    "timezone": "America/New_York",
+    "status": {
+      "code": "onsale"
+    },
+    "spanMultipleDays": false
+  },
+  "classifications": [
+    {
+      "primary": true,
+      "segment": {
+        "id": "KZFzniwnSyZfZ7v7nE",
+        "name": "Sports"
+      },
+      "genre": {
+        "id": "KnvZfZ7vAdI",
+        "name": "Hockey"
+      },
+      "subGenre": {
+        "id": "KZazBEonSMnZfZ7vFEE",
+        "name": "NHL"
+      },
+      "type": {
+        "id": "KZAyXgnZfZ7v7l1",
+        "name": "Group"
+      },
+      "subType": {
+        "id": "KZFzBErXgnZfZ7vA7d",
+        "name": "Team"
+      },
+      "family": false
+    }
+  ],
+  "promoter": {
+    "id": "690",
+    "name": "NHL REGULAR SEASON",
+    "description": "NHL REGULAR SEASON / NTL / USA"
+  },
+  "promoters": [
+    {
+      "id": "690",
+      "name": "NHL REGULAR SEASON",
+      "description": "NHL REGULAR SEASON / NTL / USA"
+    }
+  ],
+  "info": "For Groups of 15 or more tickets, call 312-455-7090 or email your contact info to tickets@chicagoblackhawks.com",
+  "pleaseNote": "Children that are under 36 inches in height may enter without a ticket, but must sit on the lap of an accompanying adult for the 2019 Bridgestone NHL Winter Classic. Refund Policy Please note that the sight lines of the venue are not typical of an indoor hockey game.",
+  "priceRanges": [
+    {
+      "type": "standard",
+      "currency": "USD",
+      "min": 85,
+      "max": 505
+    }
+  ],
+  "seatmap": {
+    "staticUrl": "https://s1.ticketm.net/tmimages/venue/maps/ch2/88610s.gif"
+  },
+  "ticketLimit": {
+    "info": "There is an 8 ticket limit for this event."
+  },
+  "_links": {
+    "self": {
+      "href": "/discovery/v2/events/vvG1fZ411N-A7B?locale=en-us"
+    },
+    "attractions": [
+      {
+        "href": "/discovery/v2/attractions/K8vZ917uO17?locale=en-us"
+      },
+      {
+        "href": "/discovery/v2/attractions/K8vZ9171o27?locale=en-us"
+      },
+      {
+        "href": "/discovery/v2/attractions/K8vZ9171oz0?locale=en-us"
+      }
+    ],
+    "venues": [
+      {
+        "href": "/discovery/v2/venues/KovZpZA1EFkA?locale=en-us"
+      }
+    ]
+  },
+  "_embedded": {
+    "venues": [
+      {
+        "name": "Notre Dame Stadium",
+        "type": "venue",
+        "id": "KovZpZA1EFkA",
+        "test": false,
+        "url": "https://www.ticketmaster.com/notre-dame-stadium-tickets-south-bend/venue/41938",
+        "locale": "en-us",
+        "postalCode": "46556",
+        "timezone": "America/New_York",
+        "city": {
+          "name": "South Bend"
+        },
+        "state": {
+          "name": "Indiana",
+          "stateCode": "IN"
+        },
+        "country": {
+          "name": "United States Of America",
+          "countryCode": "US"
+        },
+        "address": {
+          "line1": "2010 Moose Krause Circle",
+          "line2": "Notre Dame, IN 46556"
+        },
+        "location": {
+          "longitude": "-86.2252711",
+          "latitude": "41.6943284"
+        },
+        "markets": [
+          {
+            "id": "23"
+          }
+        ],
+        "dmas": [
+          {
+            "id": 274
+          },
+          {
+            "id": 281
+          },
+          {
+            "id": 303
+          },
+          {
+            "id": 314
+          },
+          {
+            "id": 390
+          },
+          {
+            "id": 397
+          }
+        ],
+        "upcomingEvents": {
+          "_total": 3,
+          "tmr": 1,
+          "ticketmaster": 2
+        },
+        "_links": {
+          "self": {
+            "href": "/discovery/v2/venues/KovZpZA1EFkA?locale=en-us"
+          }
+        }
+      }
+    ],
+    "attractions": [
+      {
+        "name": "Bridgestone-NHL Winter Classic®",
+        "type": "attraction",
+        "id": "K8vZ917uO17",
+        "test": false,
+        "url": "https://www.ticketmaster.com/bridgestonenhl-winter-classic-tickets/artist/1517613",
+        "locale": "en-us",
+        "images": [
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_RECOMENDATION_16_9.jpg",
+            "width": 100,
+            "height": 56,
+            "fallback": false
+          },
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_EVENT_DETAIL_PAGE_16_9.jpg",
+            "width": 205,
+            "height": 115,
+            "fallback": false
+          },
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_RETINA_LANDSCAPE_16_9.jpg",
+            "width": 1136,
+            "height": 639,
+            "fallback": false
+          },
+          {
+            "ratio": "4_3",
+            "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_CUSTOM.jpg",
+            "width": 305,
+            "height": 225,
+            "fallback": false
+          },
+          {
+            "ratio": "3_2",
+            "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_ARTIST_PAGE_3_2.jpg",
+            "width": 305,
+            "height": 203,
+            "fallback": false
+          },
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_TABLET_LANDSCAPE_16_9.jpg",
+            "width": 1024,
+            "height": 576,
+            "fallback": false
+          },
+          {
+            "ratio": "3_2",
+            "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_TABLET_LANDSCAPE_3_2.jpg",
+            "width": 1024,
+            "height": 683,
+            "fallback": false
+          },
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_RETINA_PORTRAIT_16_9.jpg",
+            "width": 640,
+            "height": 360,
+            "fallback": false
+          },
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+            "width": 2048,
+            "height": 1152,
+            "fallback": false
+          },
+          {
+            "ratio": "3_2",
+            "url": "https://s1.ticketm.net/dam/a/d82/6a83733f-1298-469a-9b8e-354caf6c7d82_720531_RETINA_PORTRAIT_3_2.jpg",
+            "width": 640,
+            "height": 427,
+            "fallback": false
+          }
+        ],
+        "classifications": [
+          {
+            "primary": true,
+            "segment": {
+              "id": "KZFzniwnSyZfZ7v7nE",
+              "name": "Sports"
+            },
+            "genre": {
+              "id": "KnvZfZ7vAdI",
+              "name": "Hockey"
+            },
+            "subGenre": {
+              "id": "KZazBEonSMnZfZ7vFEE",
+              "name": "NHL"
+            },
+            "type": {
+              "id": "KZAyXgnZfZ7v7l1",
+              "name": "Group"
+            },
+            "subType": {
+              "id": "KZFzBErXgnZfZ7vA7d",
+              "name": "Team"
+            },
+            "family": false
+          }
+        ],
+        "upcomingEvents": {
+          "_total": 1,
+          "ticketmaster": 1
+        },
+        "_links": {
+          "self": {
+            "href": "/discovery/v2/attractions/K8vZ917uO17?locale=en-us"
+          }
+        }
+      },
+      {
+        "name": "Boston Bruins",
+        "type": "attraction",
+        "id": "K8vZ9171o27",
+        "test": false,
+        "url": "https://www.ticketmaster.com/boston-bruins-tickets/artist/805902",
+        "locale": "en-us",
+        "images": [
+          {
+            "ratio": "3_2",
+            "url": "https://s1.ticketm.net/dam/a/c02/88607bfc-2f6a-49a4-ae78-c8440a9bac02_25441_RETINA_PORTRAIT_3_2.jpg",
+            "width": 640,
+            "height": 427,
+            "fallback": false
+          },
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/c02/88607bfc-2f6a-49a4-ae78-c8440a9bac02_25441_TABLET_LANDSCAPE_16_9.jpg",
+            "width": 1024,
+            "height": 576,
+            "fallback": false
+          },
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/c02/88607bfc-2f6a-49a4-ae78-c8440a9bac02_25441_RETINA_LANDSCAPE_16_9.jpg",
+            "width": 1136,
+            "height": 639,
+            "fallback": false
+          },
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/c02/88607bfc-2f6a-49a4-ae78-c8440a9bac02_25441_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+            "width": 2048,
+            "height": 1152,
+            "fallback": false
+          },
+          {
+            "ratio": "3_2",
+            "url": "https://s1.ticketm.net/dam/a/c02/88607bfc-2f6a-49a4-ae78-c8440a9bac02_25441_TABLET_LANDSCAPE_3_2.jpg",
+            "width": 1024,
+            "height": 683,
+            "fallback": false
+          },
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/c02/88607bfc-2f6a-49a4-ae78-c8440a9bac02_25441_RETINA_PORTRAIT_16_9.jpg",
+            "width": 640,
+            "height": 360,
+            "fallback": false
+          },
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/c02/88607bfc-2f6a-49a4-ae78-c8440a9bac02_25441_RECOMENDATION_16_9.jpg",
+            "width": 100,
+            "height": 56,
+            "fallback": false
+          },
+          {
+            "ratio": "3_2",
+            "url": "https://s1.ticketm.net/dam/a/c02/88607bfc-2f6a-49a4-ae78-c8440a9bac02_25441_ARTIST_PAGE_3_2.jpg",
+            "width": 305,
+            "height": 203,
+            "fallback": false
+          },
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/c02/88607bfc-2f6a-49a4-ae78-c8440a9bac02_25441_EVENT_DETAIL_PAGE_16_9.jpg",
+            "width": 205,
+            "height": 115,
+            "fallback": false
+          },
+          {
+            "ratio": "4_3",
+            "url": "https://s1.ticketm.net/dam/a/c02/88607bfc-2f6a-49a4-ae78-c8440a9bac02_25441_CUSTOM.jpg",
+            "width": 305,
+            "height": 225,
+            "fallback": false
+          }
+        ],
+        "classifications": [
+          {
+            "primary": true,
+            "segment": {
+              "id": "KZFzniwnSyZfZ7v7nE",
+              "name": "Sports"
+            },
+            "genre": {
+              "id": "KnvZfZ7vAdI",
+              "name": "Hockey"
+            },
+            "subGenre": {
+              "id": "KZazBEonSMnZfZ7vFEE",
+              "name": "NHL"
+            },
+            "type": {
+              "id": "KZAyXgnZfZ7v7l1",
+              "name": "Group"
+            },
+            "subType": {
+              "id": "KZFzBErXgnZfZ7vA7d",
+              "name": "Team"
+            },
+            "family": false
+          }
+        ],
+        "upcomingEvents": {
+          "_total": 79,
+          "tmr": 8,
+          "ticketmaster": 71
+        },
+        "_links": {
+          "self": {
+            "href": "/discovery/v2/attractions/K8vZ9171o27?locale=en-us"
+          }
+        }
+      },
+      {
+        "name": "Chicago Blackhawks",
+        "type": "attraction",
+        "id": "K8vZ9171oz0",
+        "test": false,
+        "url": "https://www.ticketmaster.com/chicago-blackhawks-tickets/artist/805913",
+        "locale": "en-us",
+        "images": [
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/813/5efcc4c1-1e70-42a5-b726-a7927e536813_25521_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+            "width": 2048,
+            "height": 1152,
+            "fallback": false
+          },
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/813/5efcc4c1-1e70-42a5-b726-a7927e536813_25521_RECOMENDATION_16_9.jpg",
+            "width": 100,
+            "height": 56,
+            "fallback": false
+          },
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/813/5efcc4c1-1e70-42a5-b726-a7927e536813_25521_RETINA_LANDSCAPE_16_9.jpg",
+            "width": 1136,
+            "height": 639,
+            "fallback": false
+          },
+          {
+            "ratio": "3_2",
+            "url": "https://s1.ticketm.net/dam/a/813/5efcc4c1-1e70-42a5-b726-a7927e536813_25521_TABLET_LANDSCAPE_3_2.jpg",
+            "width": 1024,
+            "height": 683,
+            "fallback": false
+          },
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/813/5efcc4c1-1e70-42a5-b726-a7927e536813_25521_RETINA_PORTRAIT_16_9.jpg",
+            "width": 640,
+            "height": 360,
+            "fallback": false
+          },
+          {
+            "ratio": "4_3",
+            "url": "https://s1.ticketm.net/dam/a/813/5efcc4c1-1e70-42a5-b726-a7927e536813_25521_CUSTOM.jpg",
+            "width": 305,
+            "height": 225,
+            "fallback": false
+          },
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/813/5efcc4c1-1e70-42a5-b726-a7927e536813_25521_EVENT_DETAIL_PAGE_16_9.jpg",
+            "width": 205,
+            "height": 115,
+            "fallback": false
+          },
+          {
+            "ratio": "3_2",
+            "url": "https://s1.ticketm.net/dam/a/813/5efcc4c1-1e70-42a5-b726-a7927e536813_25521_ARTIST_PAGE_3_2.jpg",
+            "width": 305,
+            "height": 203,
+            "fallback": false
+          },
+          {
+            "ratio": "16_9",
+            "url": "https://s1.ticketm.net/dam/a/813/5efcc4c1-1e70-42a5-b726-a7927e536813_25521_TABLET_LANDSCAPE_16_9.jpg",
+            "width": 1024,
+            "height": 576,
+            "fallback": false
+          },
+          {
+            "ratio": "3_2",
+            "url": "https://s1.ticketm.net/dam/a/813/5efcc4c1-1e70-42a5-b726-a7927e536813_25521_RETINA_PORTRAIT_3_2.jpg",
+            "width": 640,
+            "height": 427,
+            "fallback": false
+          }
+        ],
+        "classifications": [
+          {
+            "primary": true,
+            "segment": {
+              "id": "KZFzniwnSyZfZ7v7nE",
+              "name": "Sports"
+            },
+            "genre": {
+              "id": "KnvZfZ7vAdI",
+              "name": "Hockey"
+            },
+            "subGenre": {
+              "id": "KZazBEonSMnZfZ7vFEE",
+              "name": "NHL"
+            },
+            "type": {
+              "id": "KZAyXgnZfZ7v7l1",
+              "name": "Group"
+            },
+            "subType": {
+              "id": "KZFzBErXgnZfZ7vA7d",
+              "name": "Team"
+            },
+            "family": false
+          }
+        ],
+        "upcomingEvents": {
+          "_total": 80,
+          "tmr": 11,
+          "ticketmaster": 69
+        },
+        "_links": {
+          "self": {
+            "href": "/discovery/v2/attractions/K8vZ9171oz0?locale=en-us"
+          }
+        }
+      }
+    ]
+  }
+}

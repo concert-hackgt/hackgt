@@ -1,0 +1,24 @@
+<app-input-form (searchClick)="recieveMess($event)"> </app-input-form>
+<app-map></app-map>
+
+<div front *ngIf="status" class="form-inline">
+    <!-- <div class="input-group mb-2 mr-sm-2"> -->
+      <mat-card *ngFor="let item of currentData" class="example-card" (mouseover)="viewPopUp($event)">
+          <mat-card-header>
+            <mat-card-title>{{item.cardTitle}}</mat-card-title>
+            <mat-card-subtitle>{{item.subTitle}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src={{item.imageSrc}} alt={{item.atlContent}} width="370" height="280">
+          <mat-card-content>
+            <p>
+              {{item.textDetail}}
+            </p>
+          </mat-card-content>
+          <hr>
+          <mat-card-actions>
+            <mat-chip-list class="mainControl">
+              <mat-chip color="primary" selected>{{item.dateStart}} at {{item.timeStart}}</mat-chip>
+            </mat-chip-list>
+          </mat-card-actions>
+      </mat-card>
+</div>
