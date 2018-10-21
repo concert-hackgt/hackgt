@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { EventCriteriaToMapService } from '../services/event-criteria-to-map.service';
 import { EventsService } from '../logics/events.service';
+import {} from '@types/googlemaps';
+
 
 declare var google: any;
 @Component({
